@@ -1,11 +1,11 @@
-import { WeatherCard } from '@/components/WeatherCard'
+import { WeatherCardList } from './../components/WeatherCardList';
 
 
 export default function Home() {
   return (
     <>
-    <h1 className='text-6xl'>
-      <WeatherCard/>
+    <h1 className='text-2xl'>
+      <WeatherCardList/>
       </h1>
     </>
   )
