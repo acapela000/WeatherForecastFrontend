@@ -14,5 +14,24 @@ export interface WeatherForecast {
     isPrecipitating: boolean;
     humidity: number;
     date: Date;
-    
+}
+
+export interface Role {
+    id: string;
+    name: string;
+    description: string;
+}
+
+export interface User {
+    id: string;
+    userName: string;
+    password: string;
+}
+
+export interface Location {
+    id: string;
+    name: string;
+    state: string;
+    city: string;
+    country: string;
 }
