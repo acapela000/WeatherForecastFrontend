@@ -1,15 +1,20 @@
 import { WeatherCardList } from '@/components/WeatherCardList';
 import { SearchBar } from '@/components/SearchBar';
-import { getList } from '@/lib/GetList';
-import { Role } from '@/components/Database';
 
 export default function Home() {
   return (
     <>
-    <SearchBar/>
+    <h1 className='text-2xl bg-lime-100'> 
+      <SearchBar/>
+    </h1>
     
-    <h1 className='text-2xl'>
+    
+    <h1 className='text-2xl bg-cyan-100'>
       <WeatherCardList/>
+      </h1>
+
+      <h1>
+        <footer className=' bg-lime-100'></footer>
       </h1>
     </>
   )
