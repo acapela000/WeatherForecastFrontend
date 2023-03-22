@@ -1,7 +1,7 @@
 import { WeatherForecast } from "./Database"
 import { format } from "date-fns";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCloudSun } from "@fortawesome/free-solid-svg-icons";
+import { GetIcon } from './Icon';
 
 
 export function WeatherCard(prop: any) {
@@ -21,14 +21,13 @@ export function WeatherCard(prop: any) {
             <span className="uppercase">{dayOfWeek}</span> 
             <span className={"font-normal text-sm" +' '+ themeCSS.fgLight}>{date}</span>
         </div>
-        <div className="w-32 h-32 flex items-center justify-center">
-            {/* <img src={item.icon} alt="image" width="95" height="72"/> */}
-            <FontAwesomeIcon icon={faCloudSun} className={themeCSS.fg}/>
-            {/* <i className="fa-solid fa-clouds-sun"></i> */}
-        </div>
+
+        <FontAwesomeIcon icon={GetIcon(item.condition)}
+        className={themeCSS.fg + " " + "hover:shrink-3 w-20 h-20 text-md flex-2 items-center justify-center"}/>
+
         <p className={"mb-2" +' '+ themeCSS.fgLight}>{item.condition}-{item.humidity}</p>
         <div className={themeCSS.fg +' '+ "text-3xl font-bold mb-6"}>{item.temperature}°C</div>
-    </div>
+        </div>
         </>
     )
 
