@@ -1,13 +1,5 @@
-export interface Weather {
-
-    icon: string;
-    temperature: number;
-    date: Date;
-
-}
-
 export interface WeatherForecast {
-    id: string;
+    //id: string;
     icon: string;
     temperature: number;
     condition: string;
@@ -17,21 +9,22 @@ export interface WeatherForecast {
 }
 
 export interface Role {
-    id: string;
+    //id: string; // no need now, make more simple
     name: string;
     description: string;
 }
 
 export interface User {
-    id: string;
+    //id: string;
     userName: string;
     password: string;
 }
 
 export interface Location {
-    id: string;
+    //id: string;
     name: string;
     state: string;
     city: string;
     country: string;
+    weatherForecastList ?: WeatherForecast[];
 }
