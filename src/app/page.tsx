@@ -7,14 +7,14 @@ import { WeatherCard } from '@/components/WeatherCard';
 import { WeatherForecast } from '@/components/Database';
 import { Location } from '@/components/Database';
 import { GetLocationById } from '@/lib/GetById';
+import { GetLocationByCountryAndCity } from './../lib/Search';
 
 
 export default function Home() {
-  const [location, setLocation] = useState<Location|null>(null);
+  const [locationList, setLocationList] = useState<Location[]|null>(null);
   useEffect(() => {
     //API call
-    const id: string = "2ae0ce5e-c8f5-4792-a44e-9139df0fcc04";
-    GetLocationById(id).then((response) => setLocation(response));
+    GetLocationByCountryAndCity().then((response) => setLocationList(response));
   }, []);
 
   const today: WeatherForecast = {
@@ -26,20 +26,29 @@ export default function Home() {
         humidity: 0.7
   }
 
-  if (location == null) {
+  if (locationList == null) {
     return (
       <p>Loading...</p>
     )
   }
 
+  const locationListHTML = locationList.map((item) => {
+    return (
+      <div key={item.name}>
+        <p>{item.country}</p>
+        <p>{item.name}</p>
+        <p>{item.city}</p>
+        <p>{item.state}</p>
+      </div>
+    )
+  })
+
   return (
     <>
     <div>
-      {location.name}
-      {location.state}
-      {location.city}
-      {location.country}
-
+      {locationList[0].city.toString()}
+      
+      {locationListHTML}
     <h1 className='text-2xl'> 
       <SearchBar/>
     </h1>
