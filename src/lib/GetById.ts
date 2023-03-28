@@ -5,8 +5,9 @@ function GetById<T> (id: string, endpoint: string): Promise<T|null> {
     const url: string = `http://localhost:8080/${endpoint}/${id}`;
     return fetch(url)
     .then((response: Response) => {
+        console.log(response)
         if (!response.ok) {
-            throw new Error;
+            throw new Error();
         }
         return response.json() as Promise<T>;
     })
