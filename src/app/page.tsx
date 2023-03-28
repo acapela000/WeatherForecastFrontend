@@ -8,13 +8,15 @@ import { WeatherForecast } from '@/components/Database';
 import { Location } from '@/components/Database';
 import { GetLocationById } from '@/lib/GetById';
 import { GetLocationByCountryAndCity } from './../lib/Search';
+import { MainCardSkelaton } from '@/components/MainCardSkelaton';
 
 
 export default function Home() {
-  const [locationList, setLocationList] = useState<Location[]|null>(null);
+  const [locationList, setLocationList] = useState<Location[]>([]);
   useEffect(() => {
     //API call
-    GetLocationByCountryAndCity().then((response) => setLocationList(response));
+    GetLocationByCountryAndCity()
+    .then((response) => setLocationList(response));
   }, []);
 
   const today: WeatherForecast = {
@@ -26,13 +28,8 @@ export default function Home() {
         humidity: 0.7
   }
 
-  if (locationList == null) {
-    return (
-      <p>Loading...</p>
-    )
-  }
-
-  const locationListHTML = locationList.map((item) => {
+  const locationListHTML = 
+  locationList.map((item) => {
     return (
       <div key={item.name}>
         <p>{item.country}</p>
@@ -46,7 +43,9 @@ export default function Home() {
   return (
     <>
     <div>
-      {locationList[0].city.toString()}
+      {locationList.length==0 && <MainCardSkelaton/>}
+      {/*simplize step by step*/}
+      {/*locationList[0].city.toString()*/}
       
       {locationListHTML}
     <h1 className='text-2xl'> 
