@@ -40,14 +40,37 @@ export default function Home() {
     )
   })
 
-  return (
+const successCallback = (position: any) => {
+  console.log(position);
+};
+
+const errorCallback = (error: any) => {
+  console.log(error);
+};
+
+navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+const id = navigator.geolocation.watchPosition(successCallback, errorCallback);
+const options = {
+  enableHighAccuracy: true,
+  timeout: 10000,
+};
+
+navigator.geolocation.getCurrentPosition(
+  successCallback,
+  errorCallback,
+  options
+); 
+
+
+return (
     <>
     <div>
       {locationList.length==0 && <MainCardSkelaton/>}
       {/*simplize step by step*/}
       {/*locationList[0].city.toString()*/}
-      
       {locationListHTML}
+
+      
     <h1 className='text-2xl'> 
       <SearchBar/>
     </h1>
