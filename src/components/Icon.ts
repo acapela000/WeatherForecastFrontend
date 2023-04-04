@@ -22,6 +22,8 @@ const iconsDict: { [key: string]: IconDefinition } = {
 }
 
 
+// export const GetIcons = (key: string) => iconsDict[key] ?? faGhost;
+
 export function GetIcon(key: string): IconDefinition {
     return iconsDict[key] ?? faGhost
 }
