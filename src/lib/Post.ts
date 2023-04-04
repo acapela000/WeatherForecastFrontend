@@ -2,7 +2,7 @@ import { Location, User, Role, WeatherForecast } from "@/components/Database";
 
 
 function post<T>(body: T, endpoint: string): Promise<any> {
-    const url: string = `http://localhost:8080/${endpoint}`
+    const url: string = `${process.env.API}${endpoint}`
     const option: {} = {
         method: "POST",
         header: {"Content-Type": "application/json"},

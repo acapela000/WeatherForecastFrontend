@@ -1,7 +1,7 @@
 
 
 export function ModifyById<T>(id: string, body: T, endpoint: string, method: string): Promise<T|null> {
-    const url: string = `http://localhost:8080/${endpoint}/${id}`;
+    const url: string = `${process.env.API}${endpoint}/${id}`;
     const option: {} = {
         method: method,
         header: {"Content-Type": "application/json"},

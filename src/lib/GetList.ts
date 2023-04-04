@@ -6,7 +6,7 @@ function getList<T>(endpoint: string, key: string, page: number, size: number, s
         size: size.toString(),
         sort: sort
     });
-    const url = `http://localhost:8080/${endpoint}?${urlSearchParam.toString()}`;
+    const url = `${process.env.API}${endpoint}?${urlSearchParam.toString()}`;
 
     return fetch(url)
     .then((response: Response): Promise<any> => {

@@ -6,7 +6,7 @@ function getLocationBySearch<T>(endpoint: string, key: string, country: string, 
         country: country.toString(),
         city: city.toString()
     });
-    const url = `http://localhost:8080${endpoint}?${urlSearchParam.toString()}`;
+    const url = `${process.env.API}${endpoint}?${urlSearchParam.toString()}`;
 
     return fetch(url)
     .then((response: Response): Promise<any> => {
@@ -28,5 +28,5 @@ function getLocationBySearch<T>(endpoint: string, key: string, country: string, 
 }
 
 export function GetLocationByCountryAndCity(country = 'Japan', city = 'Yokohama') {
-    return getLocationBySearch<Location> ("/location/search/country-city", "locationList", country, city);
+    return getLocationBySearch<Location> ("location/search/country-city", "locationList", country, city);
 }

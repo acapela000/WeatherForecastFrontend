@@ -2,8 +2,8 @@
 import { Location, User, WeatherForecast } from '@/components/Database';
 import { Role } from './../components/Database';
 
-function deleteById<T>(id: string): Promise<any> {
-    const url: string = `http://localhost:8080/${id}`;
+function deleteById<T>(id: string, endpoint: string): Promise<any> {
+    const url: string = `${process.env.API}${endpoint}/${id}`;
     const option: {} = {
         method: "DELETE"
     }
@@ -21,17 +21,17 @@ function deleteById<T>(id: string): Promise<any> {
 }
 
 export function DelUserById(id: string): Promise<any> {
-    return deleteById<User>(id);
+    return deleteById<User>(id, "user");
 }
 
 export function DelRoleById(id: string): Promise<any> {
-    return deleteById<Role>(id);
+    return deleteById<Role>(id, "role");
 }
 
 export function DelLocationById(id: string): Promise<any> {
-    return deleteById<Location>(id);
+    return deleteById<Location>(id, "location");
 }
 
 export function DelWFById(id: string): Promise<any> {
-    return deleteById<WeatherForecast>(id);
+    return deleteById<WeatherForecast>(id, "wf");
 }

@@ -2,7 +2,7 @@ import { Location, Role, User, WeatherForecast } from '@/components/Database';
 
 
 function GetById<T> (id: string, endpoint: string): Promise<T|null> {
-    const url: string = `http://localhost:8080/${endpoint}/${id}`;
+    const url: string = `${process.env.API}${endpoint}/${id}`;
     return fetch(url)
     .then((response: Response) => {
         console.log(response)
