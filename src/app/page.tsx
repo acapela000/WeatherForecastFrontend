@@ -1,14 +1,18 @@
 'use client';
 import { useState, useEffect } from 'react';
 
-import { WeatherCardList } from '@/components/WeatherCardList';
-import { SearchBar } from '@/components/SearchBar';
 import { WeatherCard } from '@/components/WeatherCard';
 import { WeatherForecast } from '@/components/Database';
-import { Location } from '@/components/Database';
+import { WeatherCardList } from '@/components/WeatherCardList';
+import { SearchBar } from '@/components/SearchBar';
 import { GetLocationById } from '@/lib/GetById';
 import { GetLocationByCountryAndCity } from './../lib/Search';
+import { faTreeCity } from '@fortawesome/free-solid-svg-icons';
 import { MainCardSkelaton } from '@/components/MainCardSkelaton';
+import { Location } from '@/components/Database';
+import { LocationCard } from '@/components/LocationCard';
+import { LocationCardList } from '@/components/LocationCardList';
+
 
 //generate custom geoip model
 interface GeoIP {
@@ -50,17 +54,25 @@ export default function Home() {
         humidity: 0.7
   }
 
-  const locationListHTML = 
-  locationList.map((item) => {
-    return (
-      <div key={item.name}>
-        <p>{item.country}</p>
-        <p>{item.name}</p>
-        <p>{item.city}</p>
-        <p>{item.state}</p>
-      </div>
-    )
-  })
+  const thisLocation: Location = {
+    name: 'AAALuxomi',
+        state: 'Dubini',
+        city: 'Araba',
+        country: 'SAPIN',
+        weatherForecastList: []
+  }
+
+  // const locationListHTML = 
+  // locationList.map((item) => {
+  //   return (
+  //     <div key={item.name}>
+  //       <p>{item.country}</p>
+  //       <p>{item.name}</p>
+  //       <p>{item.city}</p>
+  //       <p>{item.state}</p>
+  //     </div>
+  //   )
+  // })
 
 const successCallback = (position: any) => {
   console.log(position);
@@ -87,28 +99,35 @@ const errorCallback = (error: any) => {
 return (
     <>
     <div>
-      {geoIP.country}
-      {geoIP.ip}
+      {/* {geoIP.country}
+      {geoIP.ip} */}
 
       {locationList.length==0 && <MainCardSkelaton/>}
       {/*simplize step by step*/}
       {/*locationList[0].city.toString()*/}
-      {locationListHTML}
+      {/* {locationListHTML} */}
 
       
-    <h1 className='text-2xl'> 
+    <h1 className='text'> 
       <SearchBar/>
     </h1>
     
-    <h1 className='text-2xl'> 
+    {/* <h1 className='text-xl border-none border-collapse'> 
       <WeatherCard day={today}/>
     </h1>
     
-    <h1 className='text-2xl'>
+    <h1 className='text-xl'>
       <WeatherCardList/>
+    </h1> */}
+
+    {/* <h1 className='text-xl'>
+      <LocationCard locations={thisLocation}/>
+    </h1> */}
+  
+    <h1 className='text-xl font-serif '>
+      <LocationCardList/>
     </h1>
 
-  
     </div>
     
     
