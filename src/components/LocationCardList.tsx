@@ -7,17 +7,17 @@ const placeList: Location[] =
     [
         {name: 'Luxomi',
         state: 'Dubini',
-        city: 'Araba',
+        city: 'Morocco',
         country: 'Norway',
         weatherForecastList: []},
         {name: 'Luxomi',
         state: 'Dubini',
-        city: 'Araba',
+        city: 'Yelmin',
         country: 'Geogia',
         weatherForecastList: [
-            {icon: 'https://icon-library.com/images/weather-icon-gif/weather-icon-gif-4.jpg',
+            {icon: '',
             date: new Date(),
-            temperature: 28.5,
+            temperature: 30.5,
             condition:'hot',
             isPrecipitating: false,
             humidity: 0.7}
@@ -34,12 +34,12 @@ const placeList: Location[] =
         weatherForecastList: []},
         {name: 'Honolulu',
         state: 'Dubini',
-        city: 'Araba',
+        city: 'Hannan',
         country: 'Hungary',
         weatherForecastList: []},
         {name: 'Macao',
         state: 'Dubini',
-        city: 'Araba',
+        city: 'Rufelo',
         country: 'Ireland',
         weatherForecastList: []}       
     ]
