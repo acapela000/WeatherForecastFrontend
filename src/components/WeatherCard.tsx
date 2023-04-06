@@ -16,17 +16,17 @@ export function WeatherCard(prop: any) {
     
     return (
         <>
-        <div className="bg-transparent w-16 md:mr-20 mb-10 transition duration-500 ease-in-out transform rounded-lg hover:scale-105 cursor-pointer border flex flex-col justify-center items-center text-center p-6">
-        <div className="text-md font-bold flex flex-col bg-transparent">
+        <div className="bg-transparent md:mr-5 transition duration-500 ease-in-out transform rounded-lg hover:scale-105 cursor-pointer border flex-shrink justify-center items-center text-center p-1 backdrop-blur-sm">
+        <div className="text-sm font-bold flex flex-col bg-transparent">
             <span className="uppercase">{dayOfWeek}</span> 
             <span className="font-normal text-sm bg-none">{date}</span>
         </div>
 
         <FontAwesomeIcon icon={GetIcon(item.condition)}
-        className="bg-transparent hover:shrink-3 w-20 h-20 text-md flex-2 items-center justify-center"/>
+        className="bg-transparent hover:shrink-3 w-10 h-10 text-sm flex-0 "/>
 
         <p className="bg-transparent mb-2">{item.condition}-{item.humidity}</p>
-        <div className="bg-transparent text-3xl font-bold mb-6" >{item.temperature}°C</div>
+        <div className="bg-transparent text-xl font-bold mb-4" >{item.temperature}°C</div>
         </div>
         </>
     )
