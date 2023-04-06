@@ -11,8 +11,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   //TODO: Use useState & useEffect to call the api https://source.unsplash.com/random/800x800/?spring
-  const image: string = 'https://th.bing.com/th/id/OIP.hKV9MDcok9yn0IdPTwYVewHaNK?pid=ImgDet&rs=1'
-  // 'https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/6ef35386267195.5d94716770259.png'
+  const image: string = 'https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/6ef35386267195.5d94716770259.png'
+  //'https://wallpapercave.com/wp/wp7109802.jpg'
+  // 'https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/177f0045835739.583ebe441d955.jpg'
+  // 
   // https://images.unsplash.com/photo-1584831748175-357027100c43?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=800&ixid=MnwxfDB8MXxyYW5kb218MHx8c3ByaW5nfHx8fHx8MTY4MDI2MzY5OA&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=800'
 
   return (
