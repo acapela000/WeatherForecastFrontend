@@ -5,6 +5,7 @@ const nextConfig = {
   },
   env: {
     API: process.env.API,
+    LOCATION_TOKEN: process.env.LOCATION_TOKEN,
   }, 
 }
 
