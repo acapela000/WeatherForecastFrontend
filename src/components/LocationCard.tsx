@@ -11,9 +11,9 @@ export function LocationCard(prop: any) {
         <>
         <Link href={place.country +"/"+ place.city}>
         
-        <div className="text-white border bg-transparent hover:-translate-y-1 hover:scale-109 hover:border-teal-200 hover:border-2 pb-6 pl-6 mb-7 rounded-lg backdrop-blur-sm">
+        <div className="text-white bg-transparent md:mr-5 transition duration-500 ease-in-out transform rounded-lg hover:scale-105 cursor-pointer border pb-6 pl-6 mb-7 rounded-lg backdrop-blur-sm">
             <div>{place.country} </div>
-            <div className="align">
+            <div className="">
                 {place.weatherForecastList?.find((els: WeatherForecast) => {
                     return els.date.toISOString().split('T')[0] == today.toISOString().split('T')[0]
                 })?.temperature}  
