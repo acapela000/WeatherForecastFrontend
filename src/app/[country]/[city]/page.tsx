@@ -2,16 +2,17 @@
 import { GetCurrentLocation } from '@/lib/location/GetCurrentLocation';
 import { LocationCard } from '@/components/LocationCard';
 import { WeatherCardList } from '@/components/WeatherCardList';
+import { Location } from '@/components/Database';
 
 
 export default function Home() {
 
   const thisLocation: Location = {
-    name: 'AAALuxomi',
-        state: 'Dubini',
-        city: 'Araba',
-        country: 'PARIS',
-        weatherForecastList: []
+    name: 'Luxomi',
+    state: 'Dubini',
+    city: 'Araba',
+    country: 'PARIS',
+    weatherForecastList: []
   }
 
 return (
