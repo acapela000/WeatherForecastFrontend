@@ -1,6 +1,6 @@
 
 import { Location, User, WeatherForecast } from '@/components/Database';
-import { Role } from './../components/Database';
+import { Role } from '@/components/Database';
 
 function deleteById<T>(id: string, endpoint: string): Promise<any> {
     const url: string = `${process.env.API}${endpoint}/${id}`;
