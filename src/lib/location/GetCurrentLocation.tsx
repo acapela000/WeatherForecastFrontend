@@ -3,7 +3,7 @@ import { Location } from "@/components/Database";
 import { GetLocationByCountryAndCity } from '@/lib/weather-forecast/Search';
 import { useState, useEffect } from 'react';
 import { MainCardSkelaton } from '@/components/MainCardSkelaton';
-
+import { GetCountryName } from "./GetCountryName";
 
 //generate custom geoip model
 interface GeoIP {
@@ -29,9 +29,12 @@ export function GetCurrentLocation() {
         return res.json() as Promise<{"country": string, "city": string, "region": string}>
       })
       .then((json) => {
-        const currentGeoIP: GeoIP = {country: json.country, city: json.city, state: json.region}
-        setGeoIP(currentGeoIP)
-        return currentGeoIP;
+        const currentGeoIP: GeoIP = {
+          country: GetCountryName(json.country),
+          city: json.city,
+          state: json.region
+        }
+        setGeoIP(currentGeoIP);
       })
       .catch((err) => console.log(err));
     }, []);
