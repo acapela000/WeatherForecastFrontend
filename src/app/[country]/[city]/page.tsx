@@ -1,5 +1,5 @@
 'use client';
-import { GetCurrentLocation } from '@/lib/location/GetCurrentLocation';
+import { GetCurrentLocation } from '@/components/CurrentLocation';
 import { LocationCard } from '@/components/LocationCard';
 import { WeatherCardList } from '@/components/WeatherCardList';
 import { Location } from '@/components/Database';
