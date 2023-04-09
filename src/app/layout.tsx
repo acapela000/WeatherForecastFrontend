@@ -1,4 +1,5 @@
 import './globals.css'
+import AutomaticBackground from "@/components/AutomaticBackground";
 
 export const metadata = {
   title: 'Create Next App',
@@ -18,11 +19,12 @@ export default function RootLayout({
   // https://images.unsplash.com/photo-1584831748175-357027100c43?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=800&ixid=MnwxfDB8MXxyYW5kb218MHx8c3ByaW5nfHx8fHx8MTY4MDI2MzY5OA&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=800'
 
   return (
-    <html lang="en">
-      <body className="h-14 bg-gradient-to-l from-cyan-200 to-lime-200 bg-cover"
-            style={{backgroundImage: `url(${image})`}}>
-        {children}
-        </body>
-    </html>
+    <>
+      <html lang="en">
+        <AutomaticBackground>
+          {children}
+        </AutomaticBackground>
+      </html>
+    </>
   )
 }
