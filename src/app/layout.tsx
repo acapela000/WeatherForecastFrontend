@@ -1,5 +1,5 @@
 import './globals.css'
-import AutomaticBackground from "@/components/AutomaticBackground";
+import { AutomaticBackground } from "@/components/AutomaticBackground";
 
 export const metadata = {
   title: 'Create Next App',
