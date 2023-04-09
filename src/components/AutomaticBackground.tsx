@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 
 
-export default function AutomaticBackground(prop: any) {
+export function AutomaticBackground(prop: any) {
   const [backgroundImg, setBackgroundImage] = useState('');
 
   useEffect(() => {
