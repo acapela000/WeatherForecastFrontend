@@ -8,7 +8,6 @@ export default function Home() {
   return (
     <>
       <div >
-
         <h1 className='text font-serif'>
           <SearchBar />
         </h1>
@@ -18,7 +17,7 @@ export default function Home() {
         </h1>
 
         <h1 className='text-xl font-serif'>
-          <LocationCardList />
+          <LocationCardList list={[]} />
         </h1>
       </div>
     </>
