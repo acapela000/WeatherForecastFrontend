@@ -3,34 +3,48 @@ import { CurrentLocation } from '@/components/CurrentLocation';
 import { LocationCard } from '@/components/LocationCard';
 import { WeatherCardList } from '@/components/WeatherCardList';
 import { Location } from '@/components/Database';
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
+import { GetLocationByCountryAndCity } from '@/lib/weather-forecast/Search';
 
 
-export default function Home() {
+export default function Home(props: any) {
+const searchCountry: string = props.params.country
+const searchCity: string = props.params.city
 
-  const thisLocation: Location = {
-    name: 'Luxomi',
-    state: 'Dubini',
-    city: 'Araba',
-    country: 'PARIS',
-    weatherForecastList: []
-  }
 
-return (
+  const [location, setLocation] = useState<Location | null>(null);
+
+  useEffect(() => {
+    GetLocationByCountryAndCity(searchCountry, searchCity)
+      .then((res) => {
+        console.log(res)
+        if (res.length > 0) {
+          const thisLocation: Location = res[0];
+          setLocation(thisLocation);
+        }
+      })
+  }, []);
+
+
+  return (
     <>
-    <div className='p-5 rounded-lg '>
-      <h1 className='text font-serif'> 
-        <LocationCard locations={thisLocation}/>
-      </h1>
+      <div className='p-5 rounded-lg '>
+        <h1 className='text font-serif'>
+          {location != null && <LocationCard location={location}/>}
+          
+        </h1>
 
-      {/* <h1 className='text-xl border-none border-collapse'> 
+        {/* <h1 className='text-xl border-none border-collapse'> 
         <WeatherCard day={today}/>
       </h1> */}
-      
-      <h1 className='text font-serif'>
-        <WeatherCardList/>
-      </h1>
 
-    </div>
+
+      </div>
+      <div className='text font-serif'>
+      {location != null && <WeatherCardList wf={location.weatherForecastList}/>}
+      </div>
+
     </>
   )
 }
