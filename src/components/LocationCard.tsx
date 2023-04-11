@@ -4,14 +4,14 @@ import Link from "next/link";
 
 
 export function LocationCard(prop: any) {
-    const place: Location = prop.locations;
+    const place: Location = prop.location;
     const today: Date = new Date();
     
     return (
         <>
         <Link href={place.country +"/"+ place.city}>
         
-        <div className="text-white bg-transparent md:mr-5 transition duration-500 ease-in-out transform rounded-lg hover:scale-105 cursor-pointer border pb-6 pl-6 mb-7 rounded-lg backdrop-blur-sm">
+        <div className="mt-10 text-white bg-transparent md:mr-5 transition duration-500 ease-in-out transform rounded-lg hover:scale-105 cursor-pointer border pb-6 pl-6 mb-6 rounded-lg backdrop-blur-sm">
             <div>{place.country} </div>
             <div className="">
                 {place.weatherForecastList?.find((els: WeatherForecast) => {
