@@ -2,7 +2,7 @@ import { GetCountryName } from "@/lib/location/GetCountryName";
 
 
 //generate custom geoip model
-interface GeoIP {
+export interface GeoIP {
     country: string;
     city: string;
     state: string
