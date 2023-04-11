@@ -16,7 +16,7 @@ export function WeatherCard(prop: any) {
     
     return (
         <>
-        <div className="bg-transparent md:mr-5 transition duration-500 ease-in-out transform rounded-lg hover:scale-105 cursor-pointer border flex-shrink justify-center items-center text-center p-1 backdrop-blur-sm">
+        <div className="bg-transparent transition duration-500 ease-in-out transform rounded-lg hover:scale-105 cursor-pointer border flex-shrink justify-center items-center text-center p-1 backdrop-blur-sm">
         <div className="text-sm font-bold flex flex-col bg-transparent">
             <span className="uppercase">{dayOfWeek}</span> 
             <span className="font-normal text-sm bg-none">{date}</span>
