@@ -1,6 +1,6 @@
 'use client';
 import { useState } from "react";
-import  Link  from 'next/link';
+import Link from 'next/link';
 
 
 export function NavBar() {
@@ -11,9 +11,9 @@ export function NavBar() {
             <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
                 <div>
                     <div className="flex items-center justify-between py-3 md:py-5 md:block">
-                        <a href="javascript:void(0)">
-                            <h2 className="text-xl font-serif"><img src="/clover-logo-1.png" alt="icon" className="h-10 w-10"/></h2>
-                        </a>
+                        <Link href="/">
+                            <h2 className="text-xl font-serif"><img src="/clover-logo-1.png" alt="icon" className="h-10 w-10" /></h2>
+                        </Link>
                         <div className="md:hidden">
                             <button
                                 className="p-2 text-black rounded-md outline-none focus:border-gray-400 focus:border"
@@ -54,9 +54,8 @@ export function NavBar() {
                 </div>
                 <div>
                     <div
-                        className={`flex-1 justify-self-center pb-3 mt-8 md:block md:pb-0 md:mt-0 ${
-                            navbar ? "block" : "hidden"
-                        }`}
+                        className={`flex-1 justify-self-center pb-3 mt-8 md:block md:pb-0 md:mt-0 ${navbar ? "block" : "hidden"
+                            }`}
                     >
                         <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
                             <li className="text-gray-600 hover:text-blue-600">
