@@ -1,5 +1,7 @@
 import './globals.css'
 import { AutomaticBackground } from '@/components/AutomaticBackground';
+import { NavBar } from '@/components/NavBar';
+
 
 export const metadata = {
   title: 'Create Next App',
@@ -22,7 +24,10 @@ export default function RootLayout({
     <>
       <html lang="en">
         <AutomaticBackground>
-          {children}
+            <h1 className='text font-serif'>
+              <NavBar />
+            </h1>
+            {children}
         </AutomaticBackground>
       </html>
     </>
