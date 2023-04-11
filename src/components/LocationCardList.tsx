@@ -5,47 +5,48 @@ import { WeatherCardList } from "./WeatherCardList";
 
 const placeList: Location[] = 
     [
-        {name: 'Luxomi',
-        state: 'Dubini',
-        city: 'Morocco',
-        country: 'Norway',
-        weatherForecastList: []},
-        {name: 'Luxomi',
-        state: 'Dubini',
-        city: 'Yelmin',
-        country: 'Geogia',
-        weatherForecastList: [
-            {icon: '',
-            date: new Date(),
-            temperature: 30.5,
-            condition:'hot',
-            isPrecipitating: false,
-            humidity: 0.7}
-        ]},
-        {name: 'Luxomi',
-        state: 'Dubini',
-        city: 'Araba',
-        country: 'Findland',
-        weatherForecastList: []},
-        {name: 'Melbourn',
-        state: 'Perth',
-        city: 'Sydney',
-        country: 'Australia',
-        weatherForecastList: []},
-        {name: 'Honolulu',
-        state: 'Dubini',
-        city: 'Hannan',
-        country: 'Hungary',
-        weatherForecastList: []},
-        {name: 'Macao',
-        state: 'Dubini',
-        city: 'Rufelo',
-        country: 'Ireland',
-        weatherForecastList: []}       
+        // {name: 'Luxomi',
+        // state: 'Dubini',
+        // city: 'Morocco',
+        // country: 'Norway',
+        // weatherForecastList: []},
+        // {name: 'Luxomi',
+        // state: 'Dubini',
+        // city: 'Yelmin',
+        // country: 'Geogia',
+        // weatherForecastList: [
+        //     {icon: '',
+        //     date: new Date(),
+        //     temperature: 30.5,
+        //     condition:'hot',
+        //     isPrecipitating: false,
+        //     humidity: 0.7}
+        // ]},
+        // {name: 'Luxomi',
+        // state: 'Dubini',
+        // city: 'Araba',
+        // country: 'Findland',
+        // weatherForecastList: []},
+        // {name: 'Melbourn',
+        // state: 'Perth',
+        // city: 'Sydney',
+        // country: 'Australia',
+        // weatherForecastList: []},
+        // {name: 'Honolulu',
+        // state: 'Dubini',
+        // city: 'Hannan',
+        // country: 'Hungary',
+        // weatherForecastList: []},
+        // {name: 'Macao',
+        // state: 'Dubini',
+        // city: 'Rufelo',
+        // country: 'Ireland',
+        // weatherForecastList: []}       
     ]
     
 
-export function LocationCardList() {
+export function LocationCardList(props: any) {
+    const displayList: Location[] = props.list
     // const itemHTMLList = itemList.map((item, index) => {
     
     // return (
@@ -58,14 +59,14 @@ export function LocationCardList() {
     // }) 
 
     const placeHTMLList = [];
-    for(var place of placeList) {
+    for(var place of displayList) {
         placeHTMLList.push(
-            <LocationCard key={place.city} locations={place}/>
+            <LocationCard key={place.name} location={place}/>
             )
             
             
         }
-        WeatherCardList();
+        // WeatherCardList();
         
     //     const itemHTMLList = [];
     //     <WeatherCard key={item.condition} nationality={placeCondition}/>
