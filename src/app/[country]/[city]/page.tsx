@@ -1,10 +1,8 @@
 'use client';
-import { CurrentLocation } from '@/components/CurrentLocation';
 import { LocationCard } from '@/components/LocationCard';
 import { WeatherCardList } from '@/components/WeatherCardList';
 import { Location } from '@/components/Database';
 import { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
 import { GetLocationByCountryAndCity } from '@/lib/weather-forecast/Search';
 
 
@@ -34,11 +32,6 @@ const searchCity: string = props.params.city
           {location != null && <LocationCard location={location}/>}
           
         </h1>
-
-        {/* <h1 className='text-xl border-none border-collapse'> 
-        <WeatherCard day={today}/>
-      </h1> */}
-
 
       </div>
       <div className='text font-serif'>
