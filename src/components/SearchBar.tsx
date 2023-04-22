@@ -26,13 +26,14 @@ export function SearchBar() {
 
     const [locationError, setLocationError] = useState('');
     const [locationList, setLocationList] = useState<Location[]>([]);
-    
+    const [searchBy, setSearchBy] = useState('');
+
     const onSubmit = async (formData: any) => {
         const { query } = formData;
         setLocationError('');
 
         try {
-            const data: Location[] = await GetLocationByName(query, "country"); // remove query parameter from here
+            const data: Location[] = await GetLocationByName(query, searchBy); // remove query parameter from here
             if (data) {
                 setLocationList(data);
                 // update the CurrentLocation component with the new weather data
@@ -51,14 +52,25 @@ export function SearchBar() {
             <div className="justify-center items-center text-center pt-40 mb-10 ">
                 <form onSubmit={handleSubmit(onSubmit)} className="bg-transparent rounded px-8 pt-6 pb-8 mb-4">
                     <div className="mb-4">
-                        <input {...register('query', validation)} className="bg-transparent shadow appearance-none border rounded w-80 py-2 px-3 leading-tight focus:outline-none focus:shadow-outline" placeholder="Enter city or country" />
-                        <button type="submit" className="bg-blue-100 hover:bg-blue-200 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Search</button>
+                        <select id="states" 
+                        className="divide-y bg-transparent text-slate-600 font-medium shadow w-44 appearance-none border rounded-lg rounded-r-none py-2 px-3 leading-tight
+                        focus:outline-none  focus:bg-transparent focus:text-slate-600 focus:shadow-outline p-2.5" 
+                        value={searchBy} onChange={(e) => setSearchBy(e.target.value)}>
+                            <option selected>Search by</option>
+                            <option value="country">Country</option>
+                            <option value="city">City</option>
+                            <option value="state" >State</option>
+                            <option value="name">Name</option>
+                        </select>
+
+                        <input {...register('query', validation)} className="bg-transparent shadow appearance-none border w-80 py-2 px-3 leading-tight focus:outline-none focus:shadow-outline placeholder-slate-600 font-medium" placeholder={`Enter the ${searchBy}`} />
+                        <button type="submit" className="bg-blue-100 hover:bg-blue-200 text-white font-bold py-2 px-4 rounded-lg rounded-l-none focus:outline-none focus:shadow-outline">Search</button>
                         {errors.query?.type === 'required' && <p className="text-red-500">Please fill the search bar!</p>}
                         {locationError && <p className="text-red-500">{locationError}</p>}
                     </div>
                 </form>
             </div>
-                {locationList.length != 0 && <LocationCardList list={locationList} />}
+            {locationList.length != 0 && <LocationCardList list={locationList} />}
         </>
     )
 }
