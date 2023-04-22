@@ -7,9 +7,8 @@ import { GetLocationByCountryAndCity, GetWFByURL } from '@/lib/weather-forecast/
 
 
 export default function Home(props: any) {
-const searchCountry: string = props.params.country
-const searchCity: string = props.params.city
-
+const searchCountry: string = decodeURIComponent(props.params.country);
+const searchCity: string = decodeURIComponent(props.params.city);
 
   const [location, setLocation] = useState<Location | null>(null);
   const [weatherForecastList, setWeatherForecastList] = useState<WeatherForecast[]>([]);
