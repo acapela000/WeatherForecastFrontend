@@ -1,4 +1,4 @@
-import { Location } from "@/components/Database";
+import { Location, WeatherForecast } from "@/components/Database";
 import { json } from "stream/consumers";
 
 function getLocationBySearch<T>(endpoint: string, key: string, urlSearchParam: URLSearchParams): Promise<T[]> {
@@ -36,4 +36,25 @@ export function GetLocationByName(name: string): Promise<Location[]> {
         name: name.toString()
     });
     return getLocationBySearch<Location> ("location/search/name", "locationList", urlSearchParam);
+}
+
+
+export function GetWFByURL(url: string): Promise<WeatherForecast[]> {
+    return fetch(url)
+    .then((response: Response): Promise<any> => {
+        if (!response.ok) {
+            throw new Error();
+        }
+        return response.json() as Promise<{_embedded: any}>;
+    })
+    .then((json: any): Promise<any> => {
+        return json._embedded as Promise<{ wfList: WeatherForecast[] }>;
+    }) 
+    .then((insideEmbedded: any): Promise<WeatherForecast[]> => {
+        return insideEmbedded.wfList;
+    })
+    .catch ((error: any): any => {
+        console.log(error);
+        return [];
+    })
 }
