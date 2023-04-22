@@ -1,9 +1,9 @@
 'use client';
 import { LocationCard } from '@/components/LocationCard';
 import { WeatherCardList } from '@/components/WeatherCardList';
-import { Location } from '@/components/Database';
+import { Location, WeatherForecast } from '@/components/Database';
 import { useState, useEffect } from 'react';
-import { GetLocationByCountryAndCity } from '@/lib/weather-forecast/Search';
+import { GetLocationByCountryAndCity, GetWFByURL } from '@/lib/weather-forecast/Search';
 
 
 export default function Home(props: any) {
@@ -12,14 +12,19 @@ const searchCity: string = props.params.city
 
 
   const [location, setLocation] = useState<Location | null>(null);
+  const [weatherForecastList, setWeatherForecastList] = useState<WeatherForecast[]>([]);
 
   useEffect(() => {
     GetLocationByCountryAndCity(searchCountry, searchCity)
       .then((res) => {
-        console.log(res)
         if (res.length > 0) {
           const thisLocation: Location = res[0];
           setLocation(thisLocation);
+
+          // get wfList for thisLocation
+          const wfURL: string = thisLocation._links?.weatherForecastList.href || "";
+          GetWFByURL(wfURL)
+          .then((response) => setWeatherForecastList(response));
         }
       })
   }, []);
@@ -35,7 +40,7 @@ const searchCity: string = props.params.city
 
       </div>
       <div className='text font-serif'>
-      {location != null && <WeatherCardList wf={location.weatherForecastList}/>}
+      {location != null && <WeatherCardList wf={weatherForecastList}/>}
       </div>
 
     </>
