@@ -31,11 +31,11 @@ export function GetLocationByCountryAndCity(country: string, city: string): Prom
     return getLocationBySearch<Location> ("location/search/country-city", "locationList", urlSearchParam);
 }
 
-export function GetLocationByName(name: string): Promise<Location[]> {
+export function GetLocationByName(param: string, query: string): Promise<Location[]> {
     const urlSearchParam: URLSearchParams = new URLSearchParams({
-        name: name.toString()
+        [query]: param.toString()
     });
-    return getLocationBySearch<Location> ("location/search/name", "locationList", urlSearchParam);
+    return getLocationBySearch<Location> (`location/search/${query}`, "locationList", urlSearchParam);
 }
 
 
