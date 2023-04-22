@@ -5,7 +5,7 @@ export interface WeatherForecast {
     condition: string;
     isPrecipitating: boolean;
     humidity: number;
-    date: Date;
+    lastUpdated: Date;
 }
 
 export interface Role {
@@ -26,5 +26,10 @@ export interface Location {
     state: string;
     city: string;
     country: string;
+    _links?: {
+        [weatherForecastList: string]: {
+            [href: string]: string
+        }
+    };
     weatherForecastList ?: WeatherForecast[];
 }
