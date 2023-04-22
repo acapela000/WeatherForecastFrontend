@@ -15,7 +15,7 @@ export function LocationCard(prop: any) {
             <div>{place.country} </div>
             <div className="">
                 {place.weatherForecastList?.find((els: WeatherForecast) => {
-                    return els.date.toISOString().split('T')[0] == today.toISOString().split('T')[0]
+                    return els.lastUpdated.toISOString().split('T')[0] == today.toISOString().split('T')[0]
                 })?.temperature}  
             </div>
         </div>
