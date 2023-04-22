@@ -32,7 +32,7 @@ export function SearchBar() {
         setLocationError('');
 
         try {
-            const data: Location[] = await GetLocationByName(query); // remove query parameter from here
+            const data: Location[] = await GetLocationByName(query, "country"); // remove query parameter from here
             if (data) {
                 setLocationList(data);
                 // update the CurrentLocation component with the new weather data
